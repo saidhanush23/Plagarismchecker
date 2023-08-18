@@ -1,0 +1,21 @@
+from difflib import SequenceMatcher
+
+def calculate_similarity(text1, text2):
+    similarity_ratio = SequenceMatcher(None, text1, text2).ratio()
+    return similarity_ratio
+
+def main():
+    text1 = input("Enter the first text: ")
+    text2 = input("Enter the second text: ")
+    
+    similarity_ratio = calculate_similarity(text1, text2)
+    
+    print(f"Similarity Ratio: {similarity_ratio:.2%}")
+    
+    if similarity_ratio > 0.8:
+        print("Possible plagiarism detected!")
+    else:
+        print("No significant plagiarism detected.")
+
+if __name__ == "__main__":
+    main()
